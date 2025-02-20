@@ -88,22 +88,12 @@ interface Emitter
     /**
      * @param class-string $testClassName
      */
-    public function testBeforeTestMethodErrored(string $testClassName, ClassMethod $calledMethod, Throwable $throwable): void;
-
-    /**
-     * @param class-string $testClassName
-     */
     public function testBeforeTestMethodFinished(string $testClassName, ClassMethod ...$calledMethods): void;
 
     /**
      * @param class-string $testClassName
      */
     public function testPreConditionCalled(string $testClassName, ClassMethod $calledMethod): void;
-
-    /**
-     * @param class-string $testClassName
-     */
-    public function testPreConditionErrored(string $testClassName, ClassMethod $calledMethod, Throwable $throwable): void;
 
     /**
      * @param class-string $testClassName
@@ -200,9 +190,8 @@ interface Emitter
      * @param non-empty-string $message
      * @param non-empty-string $file
      * @param positive-int     $line
-     * @param non-empty-string $stackTrace
      */
-    public function testTriggeredDeprecation(Code\Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline, bool $ignoredByTest, IssueTrigger $trigger, string $stackTrace): void;
+    public function testTriggeredDeprecation(Code\Test $test, string $message, string $file, int $line, bool $suppressed, bool $ignoredByBaseline, bool $ignoredByTest, IssueTrigger $trigger): void;
 
     /**
      * @param non-empty-string $message
@@ -264,22 +253,12 @@ interface Emitter
     /**
      * @param class-string $testClassName
      */
-    public function testPostConditionErrored(string $testClassName, ClassMethod $calledMethod, Throwable $throwable): void;
-
-    /**
-     * @param class-string $testClassName
-     */
     public function testPostConditionFinished(string $testClassName, ClassMethod ...$calledMethods): void;
 
     /**
      * @param class-string $testClassName
      */
     public function testAfterTestMethodCalled(string $testClassName, ClassMethod $calledMethod): void;
-
-    /**
-     * @param class-string $testClassName
-     */
-    public function testAfterTestMethodErrored(string $testClassName, ClassMethod $calledMethod, Throwable $throwable): void;
 
     /**
      * @param class-string $testClassName
@@ -294,18 +273,9 @@ interface Emitter
     /**
      * @param class-string $testClassName
      */
-    public function testAfterLastTestMethodErrored(string $testClassName, ClassMethod $calledMethod, Throwable $throwable): void;
-
-    /**
-     * @param class-string $testClassName
-     */
     public function testAfterLastTestMethodFinished(string $testClassName, ClassMethod ...$calledMethods): void;
 
     public function testSuiteFinished(TestSuite $testSuite): void;
-
-    public function testRunnerStartedChildProcess(): void;
-
-    public function testRunnerFinishedChildProcess(string $stdout, string $stderr): void;
 
     public function testRunnerTriggeredDeprecation(string $message): void;
 

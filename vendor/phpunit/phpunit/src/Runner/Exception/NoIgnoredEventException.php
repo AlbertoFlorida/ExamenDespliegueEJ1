@@ -7,14 +7,15 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace PHPUnit\Event\Test;
+namespace PHPUnit\Runner;
 
-use PHPUnit\Event\Subscriber;
+use RuntimeException;
 
 /**
  * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
+ *
+ * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
-interface AfterTestMethodErroredSubscriber extends Subscriber
+final class NoIgnoredEventException extends RuntimeException implements Exception
 {
-    public function notify(AfterTestMethodErrored $event): void;
 }

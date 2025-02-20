@@ -7,14 +7,15 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace PHPUnit\Event\TestRunner;
+namespace PHPUnit\TextUI\Configuration;
 
-use PHPUnit\Event\Subscriber;
+use RuntimeException;
 
 /**
  * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
+ *
+ * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
-interface ChildProcessFinishedSubscriber extends Subscriber
+final class IncludePathNotConfiguredException extends RuntimeException implements Exception
 {
-    public function notify(ChildProcessFinished $event): void;
 }

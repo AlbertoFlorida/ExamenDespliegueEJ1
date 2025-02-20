@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <form method="post">
             <input type="number" step="any" name="a" placeholder="Número (>= 0)" required>
             <div>
-                <button type="submit" name="factorial">Calcular_</button>
+                <button type="submit" name="factorial">Calcular</button>
             </div>
         </form>
         <?php if ($resultado !== ''): ?>

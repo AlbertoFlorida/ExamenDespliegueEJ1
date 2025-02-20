@@ -7,24 +7,15 @@
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
-namespace PHPUnit\Logging\TeamCity;
+namespace PHPUnit\Runner;
 
-use PHPUnit\Event\InvalidArgumentException;
-use PHPUnit\Event\TestSuite\Skipped;
-use PHPUnit\Event\TestSuite\SkippedSubscriber;
+use RuntimeException;
 
 /**
  * @no-named-arguments Parameter names are not covered by the backward compatibility promise for PHPUnit
  *
  * @internal This class is not covered by the backward compatibility promise for PHPUnit
  */
-final readonly class TestSuiteSkippedSubscriber extends Subscriber implements SkippedSubscriber
+final class ReflectionException extends RuntimeException implements Exception
 {
-    /**
-     * @throws InvalidArgumentException
-     */
-    public function notify(Skipped $event): void
-    {
-        $this->logger()->testSuiteSkipped($event);
-    }
 }
